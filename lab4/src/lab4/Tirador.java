@@ -53,6 +53,7 @@ public class Tirador extends jugadores {
     }
 
     @Override
+    
     public double atacar() {
         System.out.println("tipo de tiro? 1)tiro de 3\n2) tiro de dos");
         int tipo = lea.nextInt();
@@ -64,6 +65,11 @@ public class Tirador extends jugadores {
             return 0;
         }
 
+    }
+
+    @Override
+    public String toString() {
+        return "Tirador-" +"Nombre: "+super.getNombre();
     }
 
 }
