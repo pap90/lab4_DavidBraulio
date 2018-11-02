@@ -639,7 +639,7 @@ public class Lab4 {
                                     double tiro = equipos.get(jug2).getJugadores().get(neps2).atacar();
                                     double ran = (double) 1 + r.nextInt(99);
                                     if (ran <= tiro) {
-                                        marc++;
+                                        marc2++;
                                     }
                                     pases1 = 5;
                                     break;
