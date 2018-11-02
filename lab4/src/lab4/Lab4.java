@@ -134,17 +134,39 @@ public class Lab4 {
                     }
                     break;
                 case 2:
-                    int resp2 = -1;
-                    while (resp2 != 0) {
-                        System.out.println("0- salir\n"
-                                + "1- agregar jugador\n"
-                                + "2- eliminar jugador\n"
-                                + "3-modificar jugador\n");
-                        resp2 = sc.nextInt();
-                        switch (resp2) {
-                            case 1:
-                                if (true) {
+                    if (equipos.size() < 0) {
 
+                        int resp2 = -1;
+                        while (resp2 != 0) {
+                            System.out.println("0- salir\n"
+                                    + "1- agregar jugador\n"
+                                    + "2- eliminar jugador\n"
+                                    + "3-modificar jugador\n");
+                            resp2 = sc.nextInt();
+                            switch (resp2) {
+                                case 1:
+                                    for (int i = 0; i < equipos.size(); i++) {
+                                        System.out.println("equipo " + i + " " + equipos.get(i));
+                                    }
+                                    System.out.println("ingrese que equipo desea: ");
+                                    String selecciondeequipo = sc.next();
+                                    int contequ = 0;
+                                    for (int i = 0; i < selecciondeequipo.length(); i++) {
+                                        if (Character.isLetter(selecciondeequipo.charAt(i))) {
+                                            contequ++;
+                                        }
+                                    }
+                                    while (contequ > 0 || Integer.valueOf(selecciondeequipo) > equipos.size()) {
+                                        System.out.println("valor invalido ingrese otro.");
+                                        selecciondeequipo = sc.next();
+                                        contequ = 0;
+                                        for (int i = 0; i < selecciondeequipo.length(); i++) {
+                                            if (Character.isLetter(selecciondeequipo.charAt(i))) {
+                                                contequ++;
+                                            }
+                                        }
+                                    }
+                                    int seleccionfinal=Integer.valueOf(selecciondeequipo);
                                     System.out.println("1- tirador");
                                     System.out.println("2- pateador");
                                     String respjj = sc.next();
@@ -203,23 +225,75 @@ public class Lab4 {
 
                                     switch (respj) {
                                         case 1:
+                                            System.out.println("Ingrese tiro 2: ");
+                                            String tiro2 = sc.next();
+                                            for (int i = 0; i < tiro2.length(); i++) {
+                                                if (Character.isLetter(tiro2.charAt(i))) {
+                                                    conte++;
+                                                }
+                                            }
+                                            while (conte > 0 || Integer.valueOf(tiro2) > 100) {
+                                                System.out.println("valor invalido ingrese otro.");
+                                                tiro2 = sc.next();
+                                                conte = 0;
+                                                for (int i = 0; i < tiro2.length(); i++) {
+                                                    if (Character.isLetter(tiro2.charAt(i))) {
+                                                        conte++;
+                                                    }
+                                                }
+                                            }
+                                            double tiro2final = Integer.valueOf(tiro2);
+                                            System.out.println("Ingrese tiro 3: ");
+                                            String tiro3 = sc.next();
+                                            for (int i = 0; i < tiro3.length(); i++) {
+                                                if (Character.isLetter(tiro3.charAt(i))) {
+                                                    conte++;
+                                                }
+                                            }
+                                            while (conte > 0 || Integer.valueOf(tiro3) > 100) {
+                                                System.out.println("valor invalido ingrese otro.");
+                                                tiro3 = sc.next();
+                                                conte = 0;
+                                                for (int i = 0; i < tiro3.length(); i++) {
+                                                    if (Character.isLetter(tiro3.charAt(i))) {
+                                                        conte++;
+                                                    }
+                                                }
+                                            }
+                                            double tiro3final = Integer.valueOf(tiro3);
+                                            System.out.println("ingrese manejo 1-100: ");
+                                            String manejo = sc.next();
+                                            for (int i = 0; i < manejo.length(); i++) {
+                                                if (Character.isLetter(manejo.charAt(i))) {
+                                                    conte++;
+                                                }
+                                            }
+                                            while (conte > 0 || Integer.valueOf(manejo) > 100) {
+                                                System.out.println("valor invalido ingrese otro.");
+                                                manejo = sc.next();
+                                                conte = 0;
+                                                for (int i = 0; i < manejo.length(); i++) {
+                                                    if (Character.isLetter(manejo.charAt(i))) {
+                                                        conte++;
+                                                    }
+                                                }
+                                            }
+                                            double manejofinal = Integer.valueOf(manejo);
 
                                             break;
                                         default:
                                             throw new AssertionError();
                                     }
-                                } else {
-                                    System.out.println("no hay equipos lo siento, cree uno :v");
-                                }
-                                break;
-                            case 2:
-                                break;
-                            case 3:
-                                break;
-                            default:
+
+                                    break;
+                                case 2:
+                                    break;
+                                case 3:
+                                    break;
+                                default:
+                            }
                         }
                     }
-
                     break;
                 case 3:
                     break;

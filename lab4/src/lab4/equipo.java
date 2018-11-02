@@ -5,6 +5,8 @@
  */
 package lab4;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author david
@@ -18,7 +20,7 @@ public class equipo {
     private String mascota;
     private String año;
     private String color;
-
+    private ArrayList<jugadores> jugadores=new ArrayList();
     public equipo() {
     }
 
@@ -96,6 +98,11 @@ public class equipo {
     public void setColor(String color) {
         this.color = color;
     }
+
+    public ArrayList<jugadores> getJugadores() {
+        return jugadores;
+    }
+    
 
     @Override
     public String toString() {
