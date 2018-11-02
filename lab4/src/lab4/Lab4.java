@@ -53,7 +53,11 @@ public class Lab4 {
                             String dueño = sc.next();
                             System.out.println("ingrese el nombre de la mascota");
                             String mascota = sc.next();
-
+                            System.out.println("Ingrese el año de creacion");
+                            String año = sc.next();
+                            System.out.println("Ingrese el color: ");
+                            String color = sc.next();
+                            equipos.add(new equipo(nombre, estadio, pais, entrena, dueño, mascota, año, color));
                             break;
                         case 2:
                             System.out.println("eligio modificar");
@@ -61,14 +65,47 @@ public class Lab4 {
                                 System.out.println(i + ")" + equipos.get(i).getNombre());
                             }
                             System.out.println("ingrese el numero del equipo que quiere modificar");
-                            int posi = sc.nextInt();
+                            String preposi = sc.next();
+                            int contp = 0;
+                            for (int i = 0; i < preposi.length(); i++) {
+                                if (Character.isLetter(preposi.charAt(i))) {
+                                    contp++;
+                                }
+                            }
+                            while (contp > 0 || Integer.valueOf(preposi) > equipos.size()) {
+                                System.out.println("valor invalido ingrese otro.");
+                                preposi = sc.next();
+                                contp = 0;
+                                for (int i = 0; i < preposi.length(); i++) {
+                                    if (Character.isLetter(preposi.charAt(i))) {
+                                        contp++;
+                                    }
+                                }
+                            }
+                            int posi = Integer.valueOf(preposi);
                             System.out.println("que desea modificar?\n1)nombre"
                                     + "\n2)estadio"
                                     + "\n3)pais"
                                     + "\n4)entrenador"
                                     + "\n5)dueño"
                                     + "\n6)mascota");
-                            int modi = sc.nextInt();
+                            String premodi = sc.next();
+                            for (int i = 0; i < premodi.length(); i++) {
+                                if (Character.isLetter(premodi.charAt(i))) {
+                                    contp++;
+                                }
+                            }
+                            while (contp > 0 || Integer.valueOf(premodi) > 100) {
+                                System.out.println("valor invalido ingrese otro.");
+                                premodi = sc.next();
+                                contp = 0;
+                                for (int i = 0; i < premodi.length(); i++) {
+                                    if (Character.isLetter(premodi.charAt(i))) {
+                                        contp++;
+                                    }
+                                }
+                            }
+                            int modi = Integer.valueOf(premodi);
                             switch (modi) {
                                 case 1:
                                     System.out.println("modificar nombre");
@@ -119,7 +156,24 @@ public class Lab4 {
                                 System.out.println(i + ")" + equipos.get(i).getNombre());
                             }
                             System.out.println("ingrese el numero del equipo que desea eliminar");
-                            int elim = sc.nextInt();
+                            String preelim = sc.next();
+                            int contel=0;
+                            for (int i = 0; i < preelim.length(); i++) {
+                                if (Character.isLetter(preelim.charAt(i))) {
+                                    contel++;
+                                }
+                            }
+                            while (contel > 0 || Integer.valueOf(preelim) > 100) {
+                                System.out.println("valor invalido ingrese otro.");
+                                preelim = sc.next();
+                                contel = 0;
+                                for (int i = 0; i < preelim.length(); i++) {
+                                    if (Character.isLetter(preelim.charAt(i))) {
+                                        contel++;
+                                    }
+                                }
+                            }
+                            int elim = Integer.valueOf(preelim);
                             equipos.remove(elim);
                             break;
                         case 4:
@@ -134,7 +188,7 @@ public class Lab4 {
                     }
                     break;
                 case 2:
-                    if (equipos.size() < 0) {
+                    if (equipos.size() > 0) {
 
                         int resp2 = -1;
                         while (resp2 != 0) {
@@ -166,7 +220,7 @@ public class Lab4 {
                                             }
                                         }
                                     }
-                                    int seleccionfinal=Integer.valueOf(selecciondeequipo);
+                                    int seleccionfinal = Integer.valueOf(selecciondeequipo);
                                     System.out.println("1- tirador");
                                     System.out.println("2- pateador");
                                     String respjj = sc.next();
@@ -225,7 +279,7 @@ public class Lab4 {
 
                                     switch (respj) {
                                         case 1:
-                                            System.out.println("Ingrese tiro 2: ");
+                                            System.out.println("Ingrese tiro 2 1-100: ");
                                             String tiro2 = sc.next();
                                             for (int i = 0; i < tiro2.length(); i++) {
                                                 if (Character.isLetter(tiro2.charAt(i))) {
@@ -243,7 +297,7 @@ public class Lab4 {
                                                 }
                                             }
                                             double tiro2final = Integer.valueOf(tiro2);
-                                            System.out.println("Ingrese tiro 3: ");
+                                            System.out.println("Ingrese tiro 3 1-100: ");
                                             String tiro3 = sc.next();
                                             for (int i = 0; i < tiro3.length(); i++) {
                                                 if (Character.isLetter(tiro3.charAt(i))) {
@@ -279,10 +333,67 @@ public class Lab4 {
                                                 }
                                             }
                                             double manejofinal = Integer.valueOf(manejo);
-
+                                            equipos.get(seleccionfinal).getJugadores().add(new Tirador(tiro3final, tiro2final, manejofinal, nombre, apodo, numero, futball, basquet, jugador, mayor, año, estrellasfinal));
+                                            break;
+                                        case 2:
+                                            System.out.println("Ingrese patada 1-100: ");
+                                            String patada = sc.next();
+                                            for (int i = 0; i < patada.length(); i++) {
+                                                if (Character.isLetter(patada.charAt(i))) {
+                                                    conte++;
+                                                }
+                                            }
+                                            while (conte > 0 || Integer.valueOf(patada) > 100) {
+                                                System.out.println("valor invalido ingrese otro.");
+                                                patada = sc.next();
+                                                conte = 0;
+                                                for (int i = 0; i < patada.length(); i++) {
+                                                    if (Character.isLetter(patada.charAt(i))) {
+                                                        conte++;
+                                                    }
+                                                }
+                                            }
+                                            int patadafinal = Integer.valueOf(patada);
+                                            System.out.println("Ingrese fuerza 1-100 :");
+                                            String fuerza = sc.next();
+                                            for (int i = 0; i < fuerza.length(); i++) {
+                                                if (Character.isLetter(fuerza.charAt(i))) {
+                                                    conte++;
+                                                }
+                                            }
+                                            while (conte > 0 || Integer.valueOf(fuerza) > 100) {
+                                                System.out.println("valor invalido ingrese otro.");
+                                                fuerza = sc.next();
+                                                conte = 0;
+                                                for (int i = 0; i < fuerza.length(); i++) {
+                                                    if (Character.isLetter(fuerza.charAt(i))) {
+                                                        conte++;
+                                                    }
+                                                }
+                                            }
+                                            int fuerzafinal = Integer.valueOf(fuerza);
+                                            System.out.println("Ingrese regateadora 1-100");
+                                            String regateadora = sc.next();
+                                            for (int i = 0; i < regateadora.length(); i++) {
+                                                if (Character.isLetter(regateadora.charAt(i))) {
+                                                    conte++;
+                                                }
+                                            }
+                                            while (conte > 0 || Integer.valueOf(regateadora) > 100) {
+                                                System.out.println("valor invalido ingrese otro.");
+                                                regateadora = sc.next();
+                                                conte = 0;
+                                                for (int i = 0; i < regateadora.length(); i++) {
+                                                    if (Character.isLetter(regateadora.charAt(i))) {
+                                                        conte++;
+                                                    }
+                                                }
+                                            }
+                                            int regateadorafinal = Integer.valueOf(regateadora);
+                                            equipos.get(seleccionfinal).getJugadores().add(new pateador(patadafinal, fuerzafinal, regateadorafinal, nombre, apodo, numero, futball, basquet, jugador, mayor, año, estrellasfinal));
                                             break;
                                         default:
-                                            throw new AssertionError();
+
                                     }
 
                                     break;
