@@ -6,6 +6,7 @@
 package lab4;
 
 import java.util.ArrayList;
+import java.util.Random;
 import java.util.Scanner;
 
 /**
@@ -19,6 +20,7 @@ public class Lab4 {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Random r = new Random();
         ArrayList<jugadores> jugadores = new ArrayList();
         ArrayList<equipo> equipos = new ArrayList();
         Scanner sc = new Scanner(System.in);
@@ -568,6 +570,83 @@ public class Lab4 {
                     equipos.add(jug1, tem.get(0));
                     boolean seguir = true;
                     while (seguir == true) {
+                        int pases1 = 0;
+                        System.out.println("seleccione el jugador que desea que tenga la pelota: ");
+                        for (int i = 0; i < equipos.get(jug1).getJugadores().size(); i++) {
+                            System.out.println("jugador " + i + " " + equipos.get(jug1).getJugadores().get(i));
+                        }
+                        int neps = sc.nextInt();
+                        while (pases1 < 4) {
+                            ArrayList<jugadores> jt = new ArrayList();
+                            System.out.println("El jugador que tiene la pelota es: ");
+                            System.out.println(equipos.get(jug1).getJugadores().get(neps));
+                            System.out.println("1- pasar\n"
+                                    + "2- tirar");
+                            int opcion = sc.nextInt();
+                            switch (opcion) {
+                                case 1:
+                                    System.out.println("a quien desea pasarla");
+                                    jt.add(equipos.get(jug1).getJugadores().get(neps));
+                                    equipos.get(jug1).getJugadores().remove(neps);
+                                    for (int i = 0; i < equipos.get(jug1).getJugadores().size(); i++) {
+                                        System.out.println("jugador " + i + " " + equipos.get(jug1).getJugadores().get(i));
+                                    }
+                                    neps = sc.nextInt();
+                                    equipos.get(jug1).getJugadores().add(jt.get(0));
+                                    jt.remove(0);
+                                    pases1++;
+                                    break;
+                                case 2:
+                                    double tiro = equipos.get(jug1).getJugadores().get(neps).atacar();
+                                    double ran = (double) 1 + r.nextInt(99);
+                                    if (ran <= tiro) {
+                                        marc++;
+                                    }
+                                    pases1 = 5;
+                                    break;
+                                default:
+
+                            }
+                        }
+
+                        int pases2 = 0;
+                        System.out.println("seleccione el jugador que desea que tenga la pelota: ");
+                        for (int i = 0; i < equipos.get(jug2).getJugadores().size(); i++) {
+                            System.out.println("jugador " + i + " " + equipos.get(jug2).getJugadores().get(i));
+                        }
+                        int neps2 = sc.nextInt();
+                        while (pases1 < 4) {
+                            ArrayList<jugadores> jt = new ArrayList();
+                            System.out.println("El jugador que tiene la pelota es: ");
+                            System.out.println(equipos.get(jug2).getJugadores().get(neps2));
+                            System.out.println("1- pasar\n"
+                                    + "2- tirar");
+                            int opcion = sc.nextInt();
+                            switch (opcion) {
+                                case 1:
+                                    System.out.println("a quien desea pasarla");
+                                    jt.add(equipos.get(jug2).getJugadores().get(neps2));
+                                    equipos.get(jug2).getJugadores().remove(neps2);
+                                    for (int i = 0; i < equipos.get(jug2).getJugadores().size(); i++) {
+                                        System.out.println("jugador " + i + " " + equipos.get(jug2).getJugadores().get(i));
+                                    }
+                                    neps2 = sc.nextInt();
+                                    equipos.get(jug2).getJugadores().add(jt.get(0));
+                                    jt.remove(0);
+                                    pases1++;
+                                    break;
+                                case 2:
+                                    double tiro = equipos.get(jug2).getJugadores().get(neps2).atacar();
+                                    double ran = (double) 1 + r.nextInt(99);
+                                    if (ran <= tiro) {
+                                        marc++;
+                                    }
+                                    pases1 = 5;
+                                    break;
+                                default:
+
+                            }
+                        }
 
                         if (marc == 5) {
                             seguir = false;
