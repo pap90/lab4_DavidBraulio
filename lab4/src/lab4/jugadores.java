@@ -9,7 +9,7 @@ package lab4;
  *
  * @author User
  */
-public class jugadores {
+public abstract class jugadores {
     private String nombre;
     private String apodo;
     private String numero;
@@ -111,5 +111,5 @@ public class jugadores {
     public String toString() {
         return "jugadores{" + "nombre=" + nombre + ", apodo=" + apodo + ", numero=" + numero + ", equiFavfut=" + equiFavfut + ", equiFavBas=" + equiFavBas + ", jugfav=" + jugfav + ", mayor=" + mayor + ", anio=" + anio + ", estrellas=" + estrellas + '}';
     }
-
+    public abstract double atacar();
 }
