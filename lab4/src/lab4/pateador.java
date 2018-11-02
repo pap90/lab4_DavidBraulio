@@ -5,6 +5,7 @@
  */
 package lab4;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
@@ -56,6 +57,37 @@ public class pateador extends jugadores {
     public double atacar() {
         return ((patada + fuerza + regateadora) * 0.65 * (super.getEstrellas() / 10));
     }
-
-    
+    public void siumla(){
+        int marc=0,marc2=0;
+        for (int i = 0; i < equipos.size(); i++) {
+            System.out.println(i+")"+equipos.get(i));
+        }
+        System.out.println("ingrese el numero del equipo que va a usar el jugador 1");
+        int jug1=sc.nextInt();
+        ArrayList<equipo>tem= new ArrayList();
+        tem.add(equipos.get(jug1));
+        equipos.remove(jug1);
+        for (int i = 0; i < equipos.size(); i++) {
+            System.out.println(i+") "+equipos.get(i));
+            
+        }
+        System.out.println("ingrese el numero del equipo que va a usar el jugador 2");
+        int jug2=sc.nextInt();
+        equipos.add(jug1,tem.get(0));
+        boolean seguir=true;
+        while(seguir==true){
+        
+        
+        
+            if (marc==5) {
+                seguir=false;
+                System.out.println("el equipo: "+equipos.get(jug1).getNombre()+" ha ganado");                        
+            }
+            if (marc2==5) {
+                seguir=false;
+                System.out.println("el equipo: "+equipos.get(jug2).getNombre()+" ha ganado");
+                
+            }
+        }
+    }
 }
