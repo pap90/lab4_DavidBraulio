@@ -14,9 +14,44 @@ public class pateador extends jugadores{
     private double fuerza;
     private double regateadora;
 
+    public pateador() {
+    }
+
+    public pateador(double patada, double fuerza, double regateadora, String nombre, String apodo, String numero, String equiFavfut, String equiFavBas, String jugfav, String mayor, String anio, double estrellas) {
+        super(nombre, apodo, numero, equiFavfut, equiFavBas, jugfav, mayor, anio, estrellas);
+        this.patada = patada;
+        this.fuerza = fuerza;
+        this.regateadora = regateadora;
+    }
+
+    public double getPatada() {
+        return patada;
+    }
+
+    public void setPatada(double patada) {
+        this.patada = patada;
+    }
+
+    public double getFuerza() {
+        return fuerza;
+    }
+
+    public void setFuerza(double fuerza) {
+        this.fuerza = fuerza;
+    }
+
+    public double getRegateadora() {
+        return regateadora;
+    }
+
+    public void setRegateadora(double regateadora) {
+        this.regateadora = regateadora;
+    }
+    
+    
     @Override
     public double atacar() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return ((patada+fuerza+regateadora)*0.65*(super.getEstrellas()/10));
     }
     
 }
